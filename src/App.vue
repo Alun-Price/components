@@ -1,9 +1,9 @@
 <template>
   <h3>Hey!!!</h3>
-  <button type="button" @click="age++">INCREASE AGE</button>
+
   <button type="button" @click="age--">DECREASE AGE</button>
   <Greeting :age="age"></Greeting>
-  <user :age="age"></user>
+  <user :age="age" @age-change="agePlusThree"></user>
   <!-- note use of lowercase tags -->
 </template>
 
@@ -21,6 +21,11 @@ export default {
     return {
       age: 20,
     };
+  },
+  methods: {
+    agePlusThree(num) {
+      this.age += num;
+    },
   },
 };
 </script>
