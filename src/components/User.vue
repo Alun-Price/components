@@ -1,5 +1,6 @@
 <template>
   <button type="button" @click="onClickAge">INCREASE AGE</button>
+  <button type="button" @click="ageChangeFn(3)">UPDATE AGE CB</button>
   <p>The user is {{ age }} years old</p>
   <p>{{ ageDoubled }}</p>
 </template>
@@ -10,11 +11,12 @@ export default {
   props: {
     age: {
       type: Number,
-      required: true,
+      //required: true,
       validator(value) {
         return value < 130;
       },
     },
+    ageChangeFn: Function,
   },
   emits: ["age-change"],
   computed: {
